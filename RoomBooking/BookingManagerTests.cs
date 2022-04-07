@@ -66,7 +66,8 @@ namespace RoomBooking
 
 			var availableRooms = bm.GetAvailableRooms(_today);
 
-			availableRooms.Should().NotContain(3);
+			availableRooms.Should().NotContain(_validRoom);
+			availableRooms.Should().BeEquivalentTo(new List<int> { 12, 3, 5 });
 		}
 	}
 }

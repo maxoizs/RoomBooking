@@ -34,8 +34,8 @@ namespace RoomBooking
 		public IEnumerable<int> GetAvailableRooms(DateTime date)
 		{
 			var days = _availabilities
-				.Where(availability =>
-					availability.Value.Any(booking =>
+				.Where(availability => 
+					!availability.Value.Any(booking =>
 								booking.Date.Date.Equals(date.Date))
 				)
 				.Select(availability => availability.Key);
